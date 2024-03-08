@@ -1,0 +1,50 @@
+﻿@model IEnumerable<FuncionariosModel>
+
+@{
+	ViewData["title"] = "Página principal";
+}
+
+<div class="container">
+     <div class="d-flex justify-content-between align-items-center mb-5">
+     <h1>Funcionarios</h1>
+     <a class="btn btn-success mx-2" asp-controller="Funcionarios" asp-action="Cadastrar">Cadastrar novo funcionario</a>
+     </div>  
+    @if (TempData["MensagemSucesso"] != null)
+    {
+                <div class="alert alert-success bg-success text-light" role="alert">
+            @TempData["MensagemSucesso"]
+                </div>
+    }
+<table id="Funcionarios" class="table table-hover table-dark">
+     <thead>
+    <tr>
+      <th scope="col">Nome</th>
+      <th scope="col">Cargo</th>
+      <th scope="col">Salário</th>
+      <th scope="col">Email</th>
+      <th scope="col">Telefone</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+            @if (Model != null)
+            {
+                @foreach (var funcionario in Model)
+                {
+                        <tr>
+                        <td scope="row">@funcionario.NomeFuncionario</td>
+                        <td>@funcionario.CargoFuncionario</td>
+                               <td>@funcionario.SalarioFuncionario.ToString("0.000")</td>
+
+                        <td>@funcionario.Email</td> 
+                        <td>@funcionario.Telefone</td>
+                        <td>
+                           <a class="btn btn-primary mx-2" asp-controller="Funcionarios" asp-action="Editar" asp-route-id="@funcionario.FuncionarioId">Editar</a>
+                           <a class="btn btn-danger mx-2" asp-controller="Funcionarios" asp-action="Excluir" asp-route-id="@funcionario.FuncionarioId">Excluir</a>
+                       </td>
+                        </tr>
+                }
+            }
+  </tbody>
+</table>
+</div>

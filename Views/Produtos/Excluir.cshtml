@@ -1,0 +1,42 @@
+﻿@model ProdutosModel
+@{
+    ViewData["title"] = "Excluir produtos";
+}
+
+<div class="container bg-dark p-5 rounded-5">
+      <div class="mb-5 text-center">
+        <h1 class=text-light>Editar produtos</h1>
+    </div>
+
+    <form methos="post" asp-controller="Produtos" asp-action="Excluir">
+         <input type="hidden" asp-for="ProdutoId"/>
+  <div class="form-group">
+    <label for="Nome">Nome:</label>
+    <input type="text" class="form-control" asp-for="Nome" id="Nome" placeholder="Digite nome do produto">
+  </div>
+   <div class="form-group">
+    <label for="Descricao">Descrição: </label>
+    <input type="text" class="form-control" asp-for="Descricao" id="Descricao" placeholder="Digite uma breve descrição do produto">
+  </div>
+   <div class="form-group">
+    <label for="Quantidade">Quantidade: </label>
+    <input type="number" class="form-control" asp-for="Quantidade" id="Quantidade" placeholder="Digite a quantidade">
+  </div>
+  <div class="form-group">
+    <label for="Categoria">Categoria:</label>
+    <select class="form-control mb-5"  asp-for="Categoria" id="Categoria" placeholder="Selecione a categoria">
+        <option> Selecione a categoria</option>
+        <option>Eletrônicos</option>
+      <option>Casa e decoração</option>
+      <option>Cuidados pessoais</option>
+      <option>Ferramentas</option>
+      <option>Produtos domésticos</option>
+    </select>
+  </div>
+  <div class="d-flex gap-5 mt-6">
+    <button type="submit" class="btn btn-danger w-50">Excluir produto</button>
+    <a class="btn btn-primary w-50" asp-controller="Produtos" asp-action="Index">Voltar</a>
+  </div>
+</form>
+</div>
+

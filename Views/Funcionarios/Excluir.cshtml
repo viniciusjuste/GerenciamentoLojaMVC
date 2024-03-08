@@ -1,0 +1,45 @@
+﻿@model FuncionariosModel
+@{
+    ViewData["title"] = "Exclusão de funcionario";
+}
+
+<div class="container bg-dark p-5 rounded-5">
+      <div class="mb-5 text-center">
+        <h1 class=text-light>Exclusão de funcionarios</h1>
+    </div>
+
+    <form method="post" asp-controller="Funcionarios" asp-action="Excluir">
+        <input type="hidden" asp-for="FuncionarioId"/>
+    <div class="form-group">
+    <label for="Nome">Nome:</label>
+    <input type="text" class="form-control" asp-for="NomeFuncionario" id="Nome" placeholder="Digite nome do funcionário">
+     <span asp-validation-for="NomeFuncionario" class=text-warning></span>
+  </div>
+   <div class="form-group">
+    <label for="Cargo">Cargo:</label>
+    <input type="text" class="form-control" asp-for="CargoFuncionario" id="Cargo" placeholder="Digite o cargo do funcionário">
+    <span asp-validation-for="CargoFuncionario" class=text-warning></span>
+  </div>
+   <div class="form-group">
+    <label for="Salario">Salário: </label>
+    <input type="number" class="form-control" asp-for="SalarioFuncionario" id="Salario" placeholder="Digite o valor do salário">
+     <span asp-validation-for="SalarioFuncionario" class=text-warning></span>
+  </div>
+   <div class="form-group">
+    <label for="Email">E-mail: </label>
+    <input type="email" class="form-control" asp-for="Email" id="Email" placeholder="Digite o E-mail do funcionário">
+     <span asp-validation-for="Email" class=text-warning></span>
+  </div>
+   <div class="form-group">
+    <label for="Telefone">Telefone: </label>
+    <input type="tel" class="form-control mb-5" asp-for="Telefone" id="Telefone" placeholder="Digite o telefone do funcionário">
+     <span asp-validation-for="Telefone" class=text-warning></span>
+  </div>
+
+  <div class="d-flex gap-5 mt-6">
+    <button type="submit" class="btn btn-danger w-50">Excluir funcionário</button>
+    <a class="btn btn-primary w-50" asp-controller="Funcionarios" asp-action="Index">Voltar</a>
+  </div>
+</form>
+</div>
+
